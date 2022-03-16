@@ -75,7 +75,7 @@ function handleError(error, response) {
 
   logger.error(`caught error on api ${error.stack}`)
   response.writeHead(500)
-  return response.end
+  return response.end()
 }
 
 export function handler(request, response) {
