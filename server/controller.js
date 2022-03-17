@@ -5,7 +5,7 @@ export class Controller {
     this.service = new Service()
   }
 
-  async getFilStream(filename) {
+  async getFileStream(filename) {
     return this.service.getFileStream(filename)
   }
 }

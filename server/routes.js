@@ -23,7 +23,7 @@ async function routes(request, response) {
   if(method === 'GET' && url === '/home') {
     const { 
       stream, type
-    } = await controller.getFilStream(homeHTML)
+    } = await controller.getFileStream(homeHTML)
 
     response.writeHead(200, {
       'Content-Type': 'text/html'
@@ -36,7 +36,7 @@ async function routes(request, response) {
   if(method === 'GET' && url === '/controller') {
     const { 
       stream, type
-    } = await controller.getFilStream(controllerHTML)
+    } = await controller.getFileStream(controllerHTML)
 
     response.writeHead(200, {
       'Content-Type': 'text/html'
@@ -49,7 +49,7 @@ async function routes(request, response) {
     const {  
       stream,
       type
-    } = await controller.getFilStream(url)
+    } = await controller.getFileStream(url)
     
     const contentType = CONTENT_TYPE[type]
 

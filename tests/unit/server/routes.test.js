@@ -41,7 +41,7 @@ describe('#Routes - test suite for API response', () => {
 
     jest.spyOn(
       Controller.prototype,
-      Controller.prototype.getFilStream.name,
+      Controller.prototype.getFileStream.name,
     ).mockResolvedValue({
       stream: mockFileStream,
     })
@@ -53,7 +53,7 @@ describe('#Routes - test suite for API response', () => {
 
     await handler(...params.values())
 
-    expect(Controller.prototype.getFilStream).toBeCalledWith(pages.homeHTML)
+    expect(Controller.prototype.getFileStream).toBeCalledWith(pages.homeHTML)
     expect(mockFileStream.pipe).toHaveBeenCalledWith(params.response)
   })
   
@@ -65,7 +65,7 @@ describe('#Routes - test suite for API response', () => {
 
     jest.spyOn(
       Controller.prototype,
-      Controller.prototype.getFilStream.name,
+      Controller.prototype.getFileStream.name,
     ).mockResolvedValue({
       stream: mockFileStream,
     })
@@ -77,7 +77,7 @@ describe('#Routes - test suite for API response', () => {
 
     await handler(...params.values())
 
-    expect(Controller.prototype.getFilStream).toBeCalledWith(pages.controllerHTML)
+    expect(Controller.prototype.getFileStream).toBeCalledWith(pages.controllerHTML)
     expect(mockFileStream.pipe).toHaveBeenCalledWith(params.response)
   })
     
@@ -91,7 +91,7 @@ describe('#Routes - test suite for API response', () => {
 
     jest.spyOn(
       Controller.prototype,
-      Controller.prototype.getFilStream.name,
+      Controller.prototype.getFileStream.name,
     ).mockResolvedValue({
       stream: mockFileStream,
       type: expectedType
@@ -104,7 +104,7 @@ describe('#Routes - test suite for API response', () => {
 
     await handler(...params.values())
 
-    expect(Controller.prototype.getFilStream).toBeCalledWith(fileName)
+    expect(Controller.prototype.getFileStream).toBeCalledWith(fileName)
     expect(mockFileStream.pipe).toHaveBeenCalledWith(params.response)
     expect(params.response.writeHead).toHaveBeenCalledWith(
       200, {
@@ -123,7 +123,7 @@ describe('#Routes - test suite for API response', () => {
 
     jest.spyOn(
       Controller.prototype,
-      Controller.prototype.getFilStream.name,
+      Controller.prototype.getFileStream.name,
     ).mockResolvedValue({
       stream: mockFileStream,
       type: expectedType
@@ -136,7 +136,7 @@ describe('#Routes - test suite for API response', () => {
 
     await handler(...params.values())
 
-    expect(Controller.prototype.getFilStream).toBeCalledWith(fileName)
+    expect(Controller.prototype.getFileStream).toBeCalledWith(fileName)
     expect(mockFileStream.pipe).toHaveBeenCalledWith(params.response)
     expect(params.response.writeHead).not.toHaveBeenCalledWith()
   })
@@ -159,7 +159,7 @@ describe('#Routes - test suite for API response', () => {
       params.request.url = '/index.png'
       jest.spyOn(
         Controller.prototype,
-        Controller.prototype.getFilStream.name,
+        Controller.prototype.getFileStream.name,
       ).mockRejectedValue(new Error('Error: ENOENT: no such file or directory'))
 
       await handler(...params.values())
@@ -174,7 +174,7 @@ describe('#Routes - test suite for API response', () => {
       params.request.url = '/index.png'
       jest.spyOn(
         Controller.prototype,
-        Controller.prototype.getFilStream.name,
+        Controller.prototype.getFileStream.name,
       ).mockRejectedValue(new Error('Error:'))
 
       await handler(...params.values())
